@@ -12,6 +12,6 @@ describe("HelloWorld",function (){
     const hw=await HW.deploy();
     await hw.waitForDeployment();
 
-    expect((await hw.hello()).to.equal("Hello, World"));
+    expect(await hw.hello()).to.equal("Hello, World");
   });
 });
