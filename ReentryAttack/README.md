@@ -17,3 +17,11 @@ npx hardhat compile
 3、yarn add -D hardhat
 4、npx hardhat
 ```
+
+## receive 和 fallback函数 区别
+is msg.data empty?
+yes:receive()  
+    receive exists?
+        yes:receive()
+        no:fallback()
+no:fallback()

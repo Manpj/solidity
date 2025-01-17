@@ -27,4 +27,7 @@ contract ReentrancyVulnerable {
         return balances[msg.sender];
     }
 
+    receive() external payable{}
+
+
 }
