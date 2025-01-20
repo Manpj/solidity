@@ -25,3 +25,8 @@ yes:receive()
         yes:receive()
         no:fallback()
 no:fallback()
+
+
+## 避免可重入攻击
+1、先修改余额，再转账。可以确保攻击者转走的币是正确的。
+2、使用transfer()或transferFrom()，执行的时候有gas限制，gas用完，会自动回滚。
