@@ -11,3 +11,9 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat ignition deploy ./ignition/modules/Lock.js
 ```
+
+
+## 部署
+1、启动链：npx hardhat node
+2、编写部署脚本 deploy-hello.ts
+3、部署：npx hardhat run ./scipts/deploy-hello.ts --network localhost
