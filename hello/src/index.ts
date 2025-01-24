@@ -1,6 +1,7 @@
 import {ethers} from "ethers";
 
 function getEth(){
+    //@ts-ignore
     const eth=window.ethereum;
 
     if(!eth){
