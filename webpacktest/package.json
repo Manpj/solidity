@@ -21,7 +21,7 @@
     "dotenv-webpack": "^8.1.0",
     "ethers": "^6.4.0",
     "hardhat": "^2.22.18",
-    "hardhat-gas-reporter": "^1.0.8",
+    "hardhat-gas-reporter": "^2.2.2",
     "html-webpack-plugin": "^5.6.3",
     "solidity-coverage": "^0.8.0",
     "ts-loader": "^9.5.2",
