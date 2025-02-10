@@ -1,5 +1,6 @@
 import {ethers} from "ethers";
 import { get } from "http";
+import  Counter  from "../artifacts/contracts/Counter.sol/Counter.json";
 
 function getEth(){
     // @ts-ignore
@@ -35,12 +36,10 @@ async function getContract(){
     }
     const contract=new ethers.Contract(
         address,
-        [
-            "function increment() external",
-            "function countV() public view returns (uint)"
-        ],
+        Counter.abi,
         await provider.getSigner()
     );
+    const sender=document.createElement("div");
     const counter=document.createElement("div");
     async function getCount(){
         counter.innerHTML=await contract.countV();
@@ -52,11 +51,17 @@ async function getContract(){
     const btn=document.createElement("button");
     btn.innerHTML="Increment";
     btn.onclick=async function (){
-        const tx=await contract.increment();
-        await tx.wait();
-        getCount();
+        await contract.increment();
     }
 
+    contract.on(contract.filters.CountChanged,async function(nowSender,count){
+        sender.innerHTML = nowSender.toString();
+        counter.innerHTML = count.toString() || await contract.getCounter();
+        console.log(`Sender: ${nowSender}`);
+        console.log(`Count: ${count}`);
+    });
+
+    document.body.appendChild(sender);
     document.body.appendChild(counter);
     document.body.appendChild(btn);
 }

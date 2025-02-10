@@ -6,12 +6,15 @@ import "hardhat/console.sol";
 contract Counter {
     uint public count;
 
+    event CountChanged(address sender,uint newCount);
+
     constructor() {
         count = 0;
     }
 
     function increment() public {
         count += 1;
+        emit CountChanged(msg.sender,count);
     }
 
     function countV() public view returns (uint) {
